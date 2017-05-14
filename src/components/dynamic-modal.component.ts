@@ -13,7 +13,7 @@ export class ComponentData {
     entryComponents: [],
     template: `
         <div bsModal #dynamicModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title pull-left">{{title||"标题"}}</h4>
@@ -25,8 +25,8 @@ export class ComponentData {
                         <div #dynamicModalContainer></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" (click)="onOkEvent()">确定</button>
-                        <button type="button" class="btn btn-primary" (click)="onCancelEvent()">取消</button>
+                        <button type="button" class="btn btn-primary" (click)="onOkEvent()">{{okText||'确　定'}}</button>
+                        <button type="button" class="btn btn-primary" (click)="onCancelEvent()">{{cancelText||'取　消'}}</button>
                     </div>
                 </div>
             </div>
@@ -43,6 +43,8 @@ export class ComponentData {
 })
 export class DynamicModalComponent implements OnInit {
     @Input("title") title: string;
+    @Input("okText") okText: string;
+    @Input("cancelText") cancelText: string;
     @Output("dynamicModalComponent") dynamicModalComponent = new EventEmitter<DynamicModalComponent>();
     @Output("onOk") onOk: EventEmitter<any> = new EventEmitter<any>();
     @Output("onCancel") onCancel: EventEmitter<any> = new EventEmitter<any>();

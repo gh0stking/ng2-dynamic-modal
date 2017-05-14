@@ -21,10 +21,10 @@ export class AppComponent {
   }
 
   ok(): void {
-    console.log("clicked ok button.");
+    console.log("ok button was clicked.");
   }
 
   cancel(): void {
-    console.log("clicked cancel button.");
+    console.log("cancel button was clicked.");
   }
 }
